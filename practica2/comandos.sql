@@ -45,7 +45,7 @@ create table gerente(
     noCel int,
     salario double,
     idCinemex int,
-    foreign key(idCinemex) references cinemex(idCinemex) on delete cascade on update cascade;
+    foreign key(idCinemex) references cinemex(idCinemex) on delete cascade on update cascade
 );
 
 -- Ahora modificamos las gerente, empleado y asociado y observamos los cambios
@@ -58,13 +58,13 @@ alter table empleado rename as asociado; -- SOLO modifica el nombre
 
 -- Aumentar el tamaño del tipo de dato de la dir en asociado
 alter table asociado modify column dir varchar(200);
--- procedemos a modificar la llave primaria de cinemex que ahora sera compuesta por el id y el nombre por lo que tambien se tienen que modificar las tablas que esten relacionadas con esta por lo que seguiremos los siguientes pasos
+-- Procedemos a modificar la llave primaria de cinemex que ahora sera compuesta por el id y el nombre por lo que tambien se tienen que modificar las tablas que esten relacionadas con esta por lo que seguiremos los siguientes pasos
 -- Eliminar PK de cinemex, pero antes eliminar la llave foranea con gerente y ec
 -- Definir PK compuesta
 alter table cinemex drop primary key; -- No se puede
 --Eliminar la llave foranea
 desc gerente;
-show create table gerente; -- Muestra la descripcionde la relacion de una forma mas completa para poder obtener el constraint
+show create table gerente; -- Muestra la descripcionde la relacion de una forma mas completa a comparacion del comando desc para poder obtener el constraint de lo contrario no se podria eliminar la primary key de cinemex ya que es utilizada en esta relación
 alter table gerente drop foreign key gerente_ibfk_1;
 
 -- Lo mismo para ec
@@ -81,7 +81,7 @@ alter table gerente add foreign key(idCinemex, nomCine) references cinemex(idCin
 
 alter table ec add foreign key(idCinemex, nomCine) references cinemex(idCinemex, nombre) on delete cascade on update cascade;
 
--- Por ultimo se crea la relacion cartelera y se asocia con cinemex
+-- Por ultimo se crea la relacion cartelera
 
 create table cartelera(
     idCartelera int not null primary key,
