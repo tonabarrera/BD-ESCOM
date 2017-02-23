@@ -18,8 +18,7 @@ create table profesor(
     academia varchar(50),
     salario double,
     idDepto int,
-    foreign key(idDepto) references depto(idDepto)
-    on delete cascade on update cascade
+    foreign key(idDepto) references depto(idDepto) on delete cascade on update cascade
 );
 
 create table depto(

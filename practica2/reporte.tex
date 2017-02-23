@@ -31,7 +31,7 @@
     morekeywords={use}
 }
 
-\title{Practica 2}
+\title{Práctica 2}
 \author{Carlos Tonatihu Barrera Pérez \\ Profesor: Hernández Contreras Euler \\ Bases de Datos \\ Grupo: 2CM1 }
 \date{27 de febrero de 2017}
 
@@ -144,7 +144,7 @@
     \end{figure}
     Procedemos a modificar la llave primaria de cinemex que ahora sera compuesta por el id y el nombre por lo que también se tienen que modificar las tablas que esten relacionadas con esta por lo que seguiremos los siguientes pasos:
     \begin{enumerate}  
-        \item Eliminar PK de cinemex, pero antes eliminar la llave foranea con gerente y ec. 
+        \item Eliminar PK de cinemex, pero antes eliminar la llave foránea con gerente y ec. 
         \item Definir PK compuesta.
     \end{enumerate}
     \begin{lstlisting}
@@ -181,7 +181,7 @@
             \label{fig:tabla}
         \end{center}
     \end{figure}
-    Es necesario agregar el campo que falta para la relación y poder crear la clave foranea compuesta en las tablas de gerente y ec. Es importante que sean iguales al campo de la tabla cinemex aunque pueden llevar nombres distintos.
+    Es necesario agregar el campo que falta para la relación y poder crear la clave foránea compuesta en las tablas de gerente y ec. Es importante que sean iguales al campo de la tabla cinemex aunque pueden llevar nombres distintos.
      \begin{lstlisting}
     alter table gerente add column nomCine varchar(50);
     alter table ec add column nomCine varchar(50);
@@ -214,7 +214,7 @@
             \label{fig:foranea}
         \end{center}
     \end{figure}
-    Finalmente creamos una llave foranea en cinemex que se asocia con la cartelera.
+    Finalmente creamos una llave foránea en cinemex que se asocia con la cartelera.
     \begin{lstlisting}
     alter table cinemex add column idCartelera int;
     alter table cinemex add foreign key(idCartelera) references cartelera(idCartelera) on delete cascade on update cascade;
