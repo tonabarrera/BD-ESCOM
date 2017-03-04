@@ -31,17 +31,31 @@
     morekeywords={use}
 }
 
-\title{Práctica 1}
+\title{Reporte: Práctica 1}
 \author{Carlos Tonatihu Barrera Pérez \\ Profesor: Hernández Contreras Euler \\ Bases de Datos \\ Grupo: 2CM1 }
-\date{27 de febrero de 2017}
+\date{3 de marzo de 2017}
 
 \begin{document}
     \maketitle
     \tableofcontents
     \section{Marco Teórico}
-    Cosas mágicas
+    Un \textbf{sistema gestor de bases de datos (SGBD)} consiste en un conjunto de datos interrelacionados y en un conjunto de programas para tener acceso a esos datos. Los datos describen una empresa concreta.
+    \\
+    El objetivo principal de un \textbf{SGBD} es proporcionar un entorno que sea tanto conveniente como eficiente para las personas que lo usan para la recuperación y almacenamiento de información.
+    \\
+    Uno de los principales propositos de los sistemas de bases de datos es ofrecer a los usuarios una visión abstracta de los datos. Es decir, el sistema oculta ciertos detalles de la manera en que los datos se almacenan y mantienen.\cite{LIBRO}
+    
+    Un concepto importante a mencionar son las \textbf{tablas} a las cuales se les asigna un nombre exclusivo De manera burda una tabla es un conjunto de entidades y cada fila es una entidad es por esto que existe una correspondencia entre el termino tabla y el concepto matemático de relación.\cite{LIBRO}
+    \\
+    Además, es importante mencionar otros conceptos a tratar en esta práctica:
+    \begin{itemize}
+        \item \textbf{Atributos}. Un atributo hace referencia a las columnas de las tablas.
+        \item \textbf{Clave primaria}. Es un campo, o grupo de campos que identifica en forma única un registro. La llave primaria se utiliza para distinguir un registro con el fin de que se pueda  tener acceso a ellos, organizarlos y manipularlos. 
+        \item \textbf{Clave foránea}. Es una limitación referencial entre dos tablas la cual identifica una columna o grupo de columnas en una tabla que se refiere a una columna o grupo de columnas en otra tabla.
+    \end{itemize}
+    \newpage
     \section{Desarrollo}
-    En esta practica se comenzó creando la base de datos y seleccionándola para poder usarla.
+    En esta practica se comenzó creando la base de datos y seleccionándola para poder usarla. Para realizar esto se usan los siguientes comandos.
     \begin{lstlisting}
     create database trabajos_terminales;
     use trabajos_terminales;
@@ -53,7 +67,7 @@
             \label{fig:create}
         \end{center}
     \end{figure}
-    Se crearon las relaciones con las que se planeaba trabajar, el orden en el que se crean es importante para evitar errores.
+    Se crearon las relaciones con las que se planeaba trabajar, el orden en el que se crean es importante para evitar errores debido a la clave foránea que se usa en dirige y profesor.
     \begin{lstlisting}
     create table tt(
         nott int not null primary key,
@@ -94,22 +108,22 @@
     \end{lstlisting}
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[width=16cm, height=14cm]{img/tablas.png}
-            \caption{Descripción de las tablas.}
+            \includegraphics[width=16cm, height=15cm]{img/tablas.png}
+            \caption{Descripción de las tablas después de crearlas.}
             \label{fig:tablas}
         \end{center}
     \end{figure}
-    En este punto se empezó a modificar la descripción de las tablas
+    En este punto se empezó a modificar la descripción de las tablas usando el comando alter.
     \begin{lstlisting}
-    alter table profesor rename as catedratico;
-    alter table presentacion add column dictamen varchar(30);
-    alter table depto change column nombre depto varchar(50) not null;
-    alter table catedratico add column tel int;
-    alter table catedratico change column tel tel varchar(30);
+    alter table profesor rename as catedratico; -- Esto cambia el nombre de la tabla profesor a catedratico
+    alter table presentacion add column dictamen varchar(30); --Agregamos un nueva columna a esta tabla
+    alter table depto change column nombre depto varchar(50) not null; -- Se cambia el nombre de la columna 
+    alter table catedratico add column tel int; -- Agrega una nueva columna
+    alter table catedratico change column tel tel varchar(30); -- Cambia el tipo de dato
     \end{lstlisting}
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[width=14cm, height=9cm]{img/cambios.png}
+            \includegraphics[width=14cm, height=10cm]{img/cambios.png}
             \caption{Cambios en la base.}
             \label{fig:cambios}
         \end{center}
@@ -117,27 +131,27 @@
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=12cm, height=6cm]{img/mascambios.png}
-        \caption{Más cambios.}
+        \caption{Más cambios realizados.}
         \label{fig:cambios2}
     \end{center}
 \end{figure}
     Ahora se procedió a agregar una llave foránea a la tabla presentación, para esto primero se creo la columna que seria la futura FK y se especifica con que tabla tiene relación.
     \begin{lstlisting}
-    alter table presentacion add column nott int;
+    alter table presentacion add column nott int; -- Campo necesario para la foreign key
     alter table presentacion add FOREIGN KEY(nott) references tt(nott)
-    on delete cascade on update cascade;
+    on delete cascade on update cascade; -- Creacion de la clave foranea
     \end{lstlisting}
     \begin{figure}[H]
         \begin{center}
             \includegraphics[width=12cm, height=6cm]{img/foranea.png}
-            \caption{Creación de la llave foranea.}
+            \caption{Creación de la llave foránea}
             \label{fig:foranea}
         \end{center}
     \end{figure}
-    Después se modifico la llave primaria haciéndola compuesta para lograr esto se borra la anterior PK y se agrega la nueva.
+    Después, se modifico la llave primaria haciéndola compuesta para lograr esto se borra la anterior PK y se agrega la nueva.
     \begin{lstlisting}
-    alter table presentacion drop primary key;
-    alter table presentacion add primary key(idPresentacion, fecha);
+    alter table presentacion drop primary key; --Borramos nuestra anterior PK
+    alter table presentacion add primary key(idPresentacion, fecha); -- Nueva primary key compuesta
     \end{lstlisting}
     \begin{figure}[H]
         \begin{center}
@@ -148,12 +162,12 @@
     \end{figure}
     Finalmente se elimino la clave foránea de una tabla, esto es mas complejo que la llave primaria ya que se debe observar la descripción de la relación para obtener el constraint que tiene asignado dicha clave.
     \begin{lstlisting}
-    show create table catedratico;
-    alter table catedratico drop foreign key catedratico_ibfk_1;
+    show create table catedratico; -- Lo usamos para observar el id de la llave foranea
+    alter table catedratico drop foreign key catedratico_ibfk_1; -- Ahora si podemos borrar esta llave foranea
     \end{lstlisting}
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[width=16cm, height=10cm]{img/constraint.png}
+            \includegraphics[width=16cm, height=14cm]{img/constraint.png}
             \caption{Se identifico y borro la clave foránea}
             \label{fig:constraint}
         \end{center}
@@ -168,7 +182,7 @@
     Para finalizar se hizo un respaldo, es importante estar en la ruta que se muestra en la imagen para poder realizar esto
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[width=16cm, height=3cm]{img/respaldo.png}
+            \includegraphics[width=16cm, height=2cm]{img/respaldo.png}
             \caption{Se logro hacer el respaldo sin errores.}
             \label{fig:respaldo}
         \end{center}
