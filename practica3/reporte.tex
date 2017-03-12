@@ -39,7 +39,7 @@
     \maketitle
     \tableofcontents
     \section{Marco Teórico}
-    El lenguaje de definición de datos SQL (el cual es usado para realizar estas practicas) se utiliza para crear relaciones con esquemas especificados.
+    El lenguaje de definición de datos SQL (el cual es usado para realizar estas practicas) se utiliza para crear relaciones con esquemas especificados.\cite{LIBRO}
     SQL cuenta con tres principales clausulas a la hora de hacer consultas:
     \begin{itemize}
     \item La clausula \textbf{select} se corresponde con la operación de proyección del álgebra relacional. Se usa para obtener una relación de los atributos deseados en el resultado de una consulta.
@@ -48,9 +48,9 @@
     \end{itemize}
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[width=12cm, height=6cm]{img/sams.png}
-            \caption{Script usado.}
-            \label{fig:hasta-use}
+            \includegraphics[width=16cm, height=5cm]{img/sams.png}
+            \caption{Diagrama de la base de datos usada en esta práctica.}
+            \label{fig:hasta-usf}
         \end{center}
     \end{figure}
     \newpage
@@ -58,14 +58,14 @@
         En esta practica se trabajo con un script llamado sams.sql por lo que se creo una base de datos para trabajar y despues se importo el contenido del script.
         \begin{figure}[H]
             \begin{center}
-                \includegraphics[width=12cm, height=6cm]{img/source.png}
+                \includegraphics[width=14cm, height=6cm]{img/source.png}
                 \caption{Creación y uso de la base.}
                 \label{fig:hasta-use}
             \end{center}
         \end{figure}
         \begin{figure}[H]
             \begin{center}
-                \includegraphics[width=16cm, height=10cm]{img/post-source.png}
+                \includegraphics[width=10cm, height=10cm]{img/post-source.png}
                 \caption{Resultado de ejecutar el source.}
                 \label{fig:tablas}
             \end{center}
@@ -73,57 +73,57 @@
     Ahora comenzamos con el uso del comando select, debido a que lo que despliegan las tablas son demasiados datos en las imágenes solo se muestran los primeros resultados.
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[width=10cm, height=11cm]{img/campos.png}
+            \includegraphics[width=10cm, height=6cm]{img/campos.png}
             \caption{Se muestran todos los campos y se ordena por nombre el contenido de proveedor.}
             \label{fig:arlter}
         \end{center}
     \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/order.png}
+        \includegraphics[width=12cm, height=11cm]{img/order.png}
         \caption{Muestra algunos campos y se ordenan por nombre.}
         \label{fig:arlter2}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/entre.png}
+        \includegraphics[width=15cm, height=12cm]{img/entre.png}
         \caption{Desplegamos los campos con un precio unitario entre 1000 y 6000 de dos formas distintas.}
         \label{fig:arlter3}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/club.png}
-        \caption{Información de los club con los nombres de tepeyac, toreo o pachuca.}
+        \includegraphics[width=15cm, height=5cm]{img/club.png}
+        \caption{Información de los club con los nombres de Tepeyac, Toreo o Pachuca.}
         \label{fig:arlter4}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/chevere.png}
-        \caption{Lo mismo que el anterior pero renombrando la columna nombre como "un club chevere".}
+        \includegraphics[width=15cm, height=4cm]{img/chevere.png}
+        \caption{Lo mismo que el anterior pero renombrando la columna nombre como 'un club chevere'.}
         \label{fig:arlter5}
     \end{center}
 \end{figure}
-En este punto se empezo a usar la palabra reservada 'like' que es una wildcard (comodín) para las consultas un poco más complejas.
+En este punto se empezó a usar la palabra reservada 'like' que es una wildcard (comodín) para las consultas un poco más complejas.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/hernandez.png}
+        \includegraphics[width=10cm, height=10cm]{img/hernandez.png}
         \caption{Mostramos a todos aquellos que se apelliden Hernandez.}
         \label{fig:arlterotro}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/sabritas.png}
+        \includegraphics[width=15cm, height=5cm]{img/sabritas.png}
         \caption{Se muestran todos los teléfonos de los proveedores de LG y sabritas.}
         \label{fig:arlter6}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/gonzalez.png}
+        \includegraphics[width=15cm, height=8cm]{img/gonzalez.png}
         \caption{Muestra a aquellos socios con apellido paterno Gonzáles.}
         \label{fig:arlter7}
     \end{center}
@@ -137,14 +137,14 @@ En este punto se empezo a usar la palabra reservada 'like' que es una wildcard (
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/martinez.png}
+        \includegraphics[width=14cm, height=3cm]{img/martinez.png}
         \caption{Cuenta cuantos socios se apellidan Martínez.}
         \label{fig:arlter9}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/juan.png}
+        \includegraphics[width=14cm, height=7cm]{img/juan.png}
         \caption{Muestra el nombre de los socios llamados Juan.}
         \label{fig:arlter10}
     \end{center}
@@ -152,7 +152,7 @@ En este punto se empezo a usar la palabra reservada 'like' que es una wildcard (
 Después de hacer algunas consultas comenzamos a modificar las relaciones comenzando renombrar la tabla gerente.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/nombre.png}
+        \includegraphics[width=14cm, height=11cm]{img/nombre.png}
         \caption{Cambio nombre.}
         \label{fig:arlter77}
     \end{center}
@@ -160,7 +160,7 @@ Después de hacer algunas consultas comenzamos a modificar las relaciones comenz
 Se hicieron cambios en la tabla estado.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/change.png}
+        \includegraphics[width=10cm, height=8cm]{img/change.png}
         \caption{Cambiamos el nombre del campo nombre a estado.}
         \label{fig:arlter90}
     \end{center}
@@ -168,7 +168,7 @@ Se hicieron cambios en la tabla estado.
 De la misma forma se modifico la relación socio.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/socio.png}
+        \includegraphics[width=10cm, height=10cm]{img/socio.png}
         \caption{Se elimino la columna tel y su contenido de socio.}
         \label{fig:arlter777}
     \end{center}
@@ -176,14 +176,14 @@ De la misma forma se modifico la relación socio.
 A continuación se procedió a eliminar la llave foranea de la tabla producto.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/constraint1.png}
+        \includegraphics[width=15cm, height=8cm]{img/constraint1.png}
         \caption{Buscamos el constraint.}
         \label{fig:arlter11}
     \end{center}
 \end{figure}
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/constraint2.png}
+        \includegraphics[width=10cm, height=10cm]{img/constraint2.png}
         \caption{Borramos la relación.}
         \label{fig:arlter12}
     \end{center}
@@ -191,7 +191,7 @@ A continuación se procedió a eliminar la llave foranea de la tabla producto.
 Creamos una llave primaria compuesta para empleado para hacer esto primero se elimina la llave primaria anterior.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/llave.png}
+        \includegraphics[width=14cm, height=8cm]{img/llave.png}
         \caption{Nueva llave primaria.}
         \label{fig:arlter13}
     \end{center}
@@ -199,7 +199,7 @@ Creamos una llave primaria compuesta para empleado para hacer esto primero se el
 Luego se agrego el campo el campo salario de tipo double a la tabla empleado.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/salario.png}
+        \includegraphics[width=10cm, height=9cm]{img/salario.png}
         \caption{Nueva descripción de la relación empleado.}
         \label{fig:arlter14}
     \end{center}
@@ -207,13 +207,13 @@ Luego se agrego el campo el campo salario de tipo double a la tabla empleado.
 Finalmente agregamos una nueva relación para poder manejar múltiples correos del socio.
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=10cm, height=11cm]{img/email-socio.png}
+        \includegraphics[width=15cm, height=8cm]{img/email-socio.png}
         \caption{Creación de la nueva tabla emailSocio.}
         \label{fig:arlter15}
     \end{center}
 \end{figure}
     \section{Conclusiones}
-        En esta practica se observo de una manera muy simple el funcionamiento de algunos comandos y diversas opciones que tienen para desplegar el contenido de las tablas lo cual en un futuro nos brindara las herramientas necesarias para buscar información y darle más funcionamiento a las aplicaciones que realicemos en el futuro.
+        En esta practica se observo de una manera muy simple el funcionamiento de algunos comandos y diversas opciones que tienen para desplegar el contenido de las tablas lo cual en proximos proyectos nos brindara las herramientas necesarias para buscar información y darle más funcionamiento a las aplicaciones que realicemos ofreciendo un producto más completo a nuestros usuarios.
     \bibliography{bibliografia} 
     \bibliographystyle{ieeetr}
 \end{document}
