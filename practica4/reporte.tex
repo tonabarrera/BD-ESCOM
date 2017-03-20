@@ -1,0 +1,74 @@
+% !TeX spellcheck = es_ES
+\documentclass[12pt, titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage[letterpaper, margin=2.5cm]{geometry}
+\usepackage[nottoc,notlot,notlof]{tocbibind} % Hace que se agregen las referencias al indice
+\usepackage{url}
+\usepackage{graphicx} 
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{RGB}{253,151,31}
+
+\lstset{frame=tb,
+    language=Sql,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=2,
+    morekeywords={use}
+}
+
+\title{Reporte: Práctica 4}
+\author{Carlos Tonatihu Barrera Pérez \\ Profesor: Hernández Contreras Euler \\ Bases de Datos \\ Grupo: 2CM1 }
+\date{31 de marzo de 2017}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Marco Teórico}
+\section{Desarrollo}
+En esta practica se trabajo con la base de datos mostrada en la figura \ref{fig:base} para hacer uso de ella se realizaron los mismos pasos que en practicas anteriores, crear la base, usarla y cargar el script con los datos de la base. Además, para comenzar a hacer las operaciones necesarias para mostrar su contenido en esta ocasión haciendo uso de más de una tabla y para relacionarlas se utilizo los identificadores de cada relación los cuales se comparaban para obtener el resultado deseado.
+
+Lo primero que se hizo fue listar el nombre de la sucursal y de los empleados asignados mediante el uso de la siguiente instrucción lo cual genero el resultado mostrado en la figura \ref{fig:comando1} en donde se puede ver que la primera ordenación esta basada en homedepot y la segunda en asociado.
+
+Lo siguiente fue mostrar el nombre y correo electrónico de los socios ademas de mostrar la sucursal en donde están dados de alta como se muestra en la figura \ref{fig:comando2}. Es importante mencionar que se usan alias para no tener que escribir el nombre completo de la columna cada vez que se necesita.
+
+Lo siguiente fue mostrar el nombre de los socios, su monto de crédito y la tarjeta que tienen asignada el resultado de esta operación se muestra en la figura \ref{fig:comando3} además de que en lugar de utilizar el nombre de la columna o un alias se utiliza un numero indicando a que columna nos referimos de acuerdo a como están ordenadas entre las palabras reservadas select y from.
+
+Después se imprimió el departamento que tienen las sucursales existentes en el estado de chihuahua lo cual dio como resultado la información mostrada en la imagen \ref{fig:comando4} para realizar esto se utilizo la palabra reservada like.
+
+A continuación se mostró el nombre de la sucursal y los empleados que tiene pero solo de las sucursales cuyo código postal es 64830, 53569 y 89360, de nuevo se utilizo la palabra reservada like ya que el código postal se encuentra dentro de la dirección, esto se puede observar en la imagen \ref{fig:comando5}
+
+La siguiente operación fue algo confusa debido al orden de ejecución que genera el uso de paréntesis lo cual es importante estudiar a fondo para evitar errores, en este caso se mostró las sucursales en donde se encuentran los socios que se apellidan Gonzales, al final el resultado fue el que se observa en la figura \ref{fig:comando6}.
+
+La siguiente operación solo mostró cuantos socios se apellidan Garcia para este punto es importante mencionar que lo que se encuentra entre el select y from es una operación de proyección ($\pi$), entre from y where es un producto cartesiano (x) y entre where y el resto es una operación reunión (|x|).
+
+Otro punto importante a señalar es que una proyección elimina la duplicidad y hace ordenación Esto se puede observar en las siguientes operaciones en donde la primera no es una proyección (\ref{fig:comando8}) y la segunda y tercera si lo son (\ref{fig:comando9} y \ref{fig:comando10}) en una se utiliza la palabra distinct y en la otra group by.
+
+Lo siguiente fue saber cuantas sucursales existen en los estados, figura \ref{fig:comando11}, de nuevo se utilizo group by.
+
+Después, se mostró en cuales sucursales existe el departamento de pisos, el resultado fue el siguiente.
+
+Por ultimo, se listo el nombre de los asociados y en que sucursales se ubican al igual que el estado de dichas sucursales.
+\section{Conclusiones}
+En esta practica se continuo con el tema de las consultas a una base de datos que de una forma más especifica es una operación de proyección que hace uso del producto cartesiano y de una operación reunión si es necesario.
+
+Otro punto importe a mencionar es que se pudo observar la gran importancia de los identificadores en las relaciones y el porque se debe de conocer el como utilizarlos de forma correcta para evitar redundancias o problemas a la hora de realizar este tipo de operaciones.
+
+Además, se trabajo con mas de una relación lo cual es importante ya que esto incrementa el nivel de complejidad de las operaciones y por lo tanto se requiere saber que es lo que esta pasando en el fondo y al mismo modo nos ayuda a expandir la funcionalidad de las aplicaciones que realicemos en un futuro y nos presenta un nuevo concepto, los joins que serán estudiados a fondo en futuras practicas.
+\bibliography{bibliografia} 
+\bibliographystyle{ieeetr}
+\end{document}
