@@ -39,6 +39,20 @@
 \maketitle
 \tableofcontents
 \section{Marco Teórico}
+Esta practica continuo el tema de consultas a una base de datos por lo que es importante señalar lo siguiente.
+
+Las consultas habituales de SQL tien la forma \textbf{select} $A_{1}, A_{2},...,A_{n}$ \textbf{from} $r_{1}, r_{2}, ..., r_{m}$ \textbf{where} $P$.\cite{LIBRO}
+
+Cada $A_{i}$ representa un atributo y cada $r_{j}$ una relación, $P$ es un predicado. SQL forma un producto cartesiano de las relaciones incluidas en la cláusula \textbf{from}, lleva a cabo la selección del álgebra relacional utilizando el predicado de la cláusula \textbf{where} y después proyecta el resultado sobre los atributos de la cláusula \textbf{select}.
+
+Otro concepto del que se hablo en esta practica fueron las operaciones de álgebra relacional, de manera mas especifica se mencionaron tres, \textbf{proyección}, \textbf{producto cartesiano} y \textbf{reunión}.\cite{LIBRO}
+\begin{itemize}
+	\item La operación \textbf{proyección} es una operación unitaria que devuelve su relación de argumentos, excluyendo algunos argumentos. La proyección se denota por la letra griega mayúscula pi ($\Pi$).
+	\item La operación \textbf{producto cartesiano} es denotada por una x ($X$), permite combinar información de cuales quiera dos relaciones.
+	\item La operación de \textbf{reunión} es una operación del álgebra relacional extendida, esta operación une dos relaciones que tengan un atributo con el mismo nombre, si no hay ningún nombre en común no se puede realizar. Se denota por el siguiente símbolo $|X|$
+\end{itemize}
+Existen más operaciones en el álgebra relacional y en el álgebra relacional extendida que serán estudiadas en futuras clases.
+\newpage
 \section{Desarrollo}
 En esta practica se trabajo con la base de datos mostrada en la figura \ref{fig:home} para hacer uso de ella se realizaron los mismos pasos que en practicas anteriores, crear la base, usarla y cargar el script con los datos de la base.
  \begin{figure}[H]
