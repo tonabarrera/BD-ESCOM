@@ -1,0 +1,86 @@
+% !TeX spellcheck = es_ES
+\documentclass[12pt, titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage[letterpaper, margin=2.5cm]{geometry}
+\usepackage[nottoc,notlot,notlof]{tocbibind} % Hace que se agregen las referencias al indice
+\usepackage{url}
+\usepackage{graphicx} 
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{RGB}{253,151,31}
+
+\lstset{frame=tb,
+    language=Sql,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=2,
+    morekeywords={use}
+}
+
+\title{Tarea 3: Índices}
+\author{Carlos Tonatihu Barrera Pérez \\ Profesor: Hernández Contreras Euler \\ Bases de Datos \\ Grupo: 2CM1 }
+\date{31 de marzo de 2017}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Introducción}
+	Los Índices surgen debido a que al hacer muchas consultas estas pueden hacer referencia a una pequeña porción de los registros de un archivo por lo que se genera un gasto adicional en la búsqueda de estos registros por lo que al implementar índices esto se puede mejorar.
+	
+	Los índices en las bases de datos cumplen la misma función que el índice de un libro el cual es evitar búsquedas innecesarias para encontrar la información que se desea de la manera más rápida posible. 
+	
+	En este caso al recuperar algún registro con base en su identificador el sistema de bases de datos buscaría en un índice para encontrar el bloque de disco donde se ubica el registro correspondiente para después extraer el bloque y en seguida obtener el registro que se busca.
+	
+	Existen dos tipos de índices en la base de datos:
+	\begin{itemize}
+		\item \textbf{Índices ordenados}. Basados en una disposición ordenada de los valores.
+		\item \textbf{Índices asociativos}. Basados en una distribución uniforme de los valores a través de cajones (buckets). El valor de cada cajón esta determinado por una función de asociación (hash función). 
+	\end{itemize}
+	No existe una técnica universal que se deba de utilizar sino que esto depende de la base de datos. Para realizar la eleccion indicada se debe de tomar en cuenta:
+	\begin{itemize}
+		\item Tipos de acceso
+		\item Tiempos de acceso
+		\item Tiempo de inserción
+		\item Tiempo de borrado
+		\item Espacio adicional requerido
+	\end{itemize}
+	\section{Desarrollo}
+	\subsection{Primario}
+	El indice primario es aquel en el cual el archivo que contiene los registros está ordenado secuencialmente y el indice cuya clave de búsqueda especifica el orden secuencial del archivo es el indice de agrupación (indice primario). Índice primario hace alusión a un índice según la clave primaria aunque esto no es necesario
+	\subsection{Secundario}
+	El índice secundario es aquel en el que las claves de búsqueda especifican un orden diferente del orden secuencial del archivo.
+	Este tipo de indice mejora el rendimiento de las consultas que utilizan otras claves de búsqueda distinta de la del indice primario.Sin embargo estos implican un gasto adicional en la modificación de la base de datos.
+	\subsection{Agrupamiento}
+	Un indice de agrupamiento es un indice no denso que tiene una entrada por cada valor distinto del campo de indexación.
+	\subsection{Árbol $B^{+}$}
+	Un indice de árbol $B^{+}$ tiene forma de un árbol equilibrado en el que cada camino de la raíz a las hojas tiene la misma longitud. Su altura es proporcional a el logaritmo base N del número de registros de la relación.
+	
+	Este tipo de árbol es más corto que los arboles binarios por lo que se necesitan menos accesos a disco para localizar los registros. Es por esto que las búsquedas son directas y eficientes pero al momento de realizar una inserción y borrado el trabajo se complica pero sigue manteniendo su eficiencia.
+	
+	Se utiliza para evitar el principal inconveniente de la organización del archivo secuencial indexado el cual es que el rendimiento disminuye conforme el archivo crece.
+	
+	\subsection{Múltiples niveles}
+	\subsection{Hash tables}
+	
+	Concepto
+	Estructura
+	Ejemplo
+	SGBD que lo soportan (MySQL, Oracle, IBM BD2, SQL Server)
+	\section{Conclusiones}
+	\bibliography{bibliografia} 
+	\bibliographystyle{ieeetr}
+\end{document}]
