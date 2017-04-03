@@ -1,0 +1,86 @@
+% !TeX spellcheck = es_ES
+\documentclass[12pt, titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage[letterpaper, margin=2.5cm]{geometry}
+\usepackage[nottoc,notlot,notlof]{tocbibind} % Hace que se agregen las referencias al indice
+\usepackage{url}
+\usepackage{graphicx} 
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{RGB}{253,151,31}
+
+\lstset{frame=tb,
+    language=Sql,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=2,
+    morekeywords={use}
+}
+
+\title{Reporte: Práctica 4}
+\author{Carlos Tonatihu Barrera Pérez \\ Profesor: Hernández Contreras Euler \\ Bases de Datos \\ Grupo: 2CM1 }
+\date{31 de marzo de 2017}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Marco Teórico}
+	\section{Desarrollo}
+	Al igual que en las practicas anteriores en esta se trabajo con una base de datos ya existente en la que se trabajaron los siguientes ejercicios de vistas.
+	
+	Primero se creo una vista para mostrar el nombre del socio y la tarjeta asignada.
+	
+	La segunda vista implico mostrar el nombre de asociado y su respectivo teléfono.
+	
+	A continuación se creo una vista para el nombre del socio y su email.
+	
+	La siguiente vista permitió imprimir el nombre de la sucursal y el estado donde se ubica.
+	
+	Después, se diseño la vista que permite mostrar el nombre de socio y su monto de crédito.
+	
+	La siguiente vista muestra el nombre del asociado y su genero.
+	
+	Luego se creo la vista para imprimir el nombre de la sucursal y su departamento.
+	
+	A continuación se hizo la vista para desplegar el nombre del socio y su dirección.
+	
+	La siguiente vista fue similar pero mostrando el nombre de la sucursal y su directorio.
+	
+	El nombre del socio y su teléfono se muestran gracias a la siguiente vista.
+	
+	Después, se hizo la vista para mostrar el nombre de un asociado y su sucursal.
+	
+	Para finalizar este conjunto de ejercicios se creo la vista para mostar el nombre del socio.
+	
+	Las siguientes consultas se hicieron apoyándose en las vistas antes creadas para simplificar su descripción.
+	
+	Lo primero fue mostrar el nombre del asociado, el genero y la sucursal pero solo de los que se apellidan García. Para realizar esto se usaron la vista 6  y 11.
+	
+	La vista cuatro y nueve fueron usadas para desplegar el nombre de la sucursal, el estado y su dirección.
+	
+	A continuación se mostraron el nombre de los socios que se apellidan Pérez con ayuda de las vistas 5 y 10.
+	 
+	Después, se mostró el nombre de los socios, su dirección y sucursal donde están inscritos utilizando las vistas ocho y doce.
+	
+	Finalmente se usaron las vistas cuatro y once para imprimir el nombre de las sucursales, estado y el nombre de sus asociados pero solo de aquellas ubicadas en el Estado de México.
+	
+	
+	\section{Conclusiones}
+	Como se puede observar en la práctica las vistas son una nueva herramienta que podremos usar para facilitar las consultas a la base de datos ya que como se mostró en prácticas anteriores estas pueden llegar a ser extremadamente largas e incluso podrían volverse confusas por lo que con las vistas podremos obtener un nuevo nivel de abstracción el cual nos podrá facilitar el trabajo aunque hay que mencionar que se debe de tener mucho cuidado para no equivocarse desde la creación de las vistas ya que a la larga esto afectara las subsecuentes consultas que utilicen dicha vista.
+	\bibliography{bibliografia} 
+	\bibliographystyle{ieeetr}
+\end{document}
