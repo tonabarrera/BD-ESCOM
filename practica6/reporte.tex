@@ -31,7 +31,7 @@
     morekeywords={use}
 }
 
-\title{Reporte: Práctica 4}
+\title{Reporte: Práctica 6}
 \author{Carlos Tonatihu Barrera Pérez \\ Profesor: Hernández Contreras Euler \\ Bases de Datos \\ Grupo: 2CM1 }
 \date{31 de marzo de 2017}
 
@@ -39,6 +39,28 @@
 	\maketitle
 	\tableofcontents
 	\section{Marco Teórico}
+	Las vistas son relaciones que no forman parte del modelo lógico pero que se hacen visibles a los usuarios como relaciones virtuales. Además, es posible definir muchas vistas de cualquier conjunto de relaciones.\cite{LIBRO}
+	
+	Las vistas se definen mediante la siguiente estructura:
+	\begin{center}
+		\textbf{create view} \textit{nombre\_vista} as $<$expresión de consulta$>$
+	\end{center}
+	Los elementos que conforman esta estructura son:
+	\begin{itemize}
+		\item \textbf{create view} es la instrucción que se usa para la creación de vistas.
+		\item \textit{nombre\_vista} representa el nombre que puede adoptar esta vista.
+		\item $<$expresión de consulta$>$ hace alusión a cualquier expresión legal de consulta.
+	\end{itemize}
+	Una vez creada la vista se puede utilizar para hacer referencia a la relación virtual que genera
+	
+	El siguiente diagrama representa la base de datos con la que se trabajo en esta práctica. Las vistas pueden aparecer en cualquier lugar en el que puedan hacerlo los nombre de las relaciones, siempre y cuando no se ejecuten sobre las vistas operaciones de actualización.
+	 \begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=16cm, height=5cm]{home.png}
+			\label{fig:home}
+		\end{center}
+	\end{figure}
+	Las vistas nos permiten ocultar ciertos datos a los usuarios por lo que representan un nivel de seguridad básico.
 	\section{Desarrollo}
 	Al igual que en las practicas anteriores en esta se trabajo con una base de datos ya existente en la que se trabajaron los siguientes ejercicios de vistas.
 	
