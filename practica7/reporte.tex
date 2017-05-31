@@ -46,12 +46,22 @@
 	\begin{lstlisting}
 		insert into socio (idSocio,nombre,email,credito) values ("s1500","Hernandez Contreras Euler", "eulerelbonito@hotmail.com", 12000);
 	\end{lstlisting}
-	%Poner la imagen del select * from socio where idSocio="s1500";%
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/uno.png}
+			\label{fig:uno}
+		\end{center}
+	\end{figure}
 	Procedemos a asociarlo con una sucursal mediante la tabla hdsocio.
 	\begin{lstlisting}
 	insert into hdsocio values ((select idsocio from socio where nombre like "Hern% Contr% Eu%"), (select idHd from homedepot where nombre like "Cuautit%"));
 	\end{lstlisting}
-	%Poenemos el resultado de select s.idsocio, s.nombre, h.idhd, h.nombre from socio s, homedepot h, hdsocio x where s.idsocio=x.socio_idsocio and x.homedepot_idhd=h.idhd and s.nombre like "Hern% Contr% Eu%"; %
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/dos.png}
+			\label{fig:dos}
+		\end{center}
+	\end{figure}
 	
 	El siguiente ejercicio fue cambiar el no. de tel de aquellas sucursales que tienes los siguientes C.P. 77500, 21370. Lo cual se realiza ejecutando las siguientes instrucciones.
 	\begin{lstlisting}
@@ -60,8 +70,12 @@
 	where direccion like "%77500%" 
 	or direccion like "%21370%";
 	\end{lstlisting}
-	
-	%Comprobar con imagen de select nombre, tel from homedepot where direccion like "%77500%" or direccion like "%21370%";%
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/tres.png}
+			\label{fig:tres}
+		\end{center}
+	\end{figure}
 	
 	El ejercicio tres fue asignar a los asociados que se apellidan GARCIA a otra sucursal.
 	\begin{lstlisting}
@@ -69,6 +83,12 @@
 	
 	update asociado set homedepot_idhd=(select idhd from homedepot where nombre like "%Torres%") where nombre like "%Garc_a%";
 	\end{lstlisting}
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/cuatro.png}
+			\label{fig:cuatro}
+		\end{center}
+	\end{figure}
 	
 	A continuación se agrego el departamento de quejas y se asigno solamente a las sucursales del estado de Jalisco.
 	\begin{lstlisting}
@@ -80,8 +100,12 @@
 	-- Y procedemos a agregar el departamento a dichas sucursales
 	insert into hddepto values ("HD036","D014"),("HD037","D014"), ("HD038","D014");
 	\end{lstlisting}
-	
-	%Comprobamos nuestros cambios select h.idhd, d.iddepto from homedepot h, depto d, hddepto x where h.idhd=x.homedepot_idhd and x.depto_iddepto=d.iddepto and h.estado like "%Jalisc%" and d.nombre like "%Quej%";%
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/cinco.png}
+			\label{fig:cinco}
+		\end{center}
+	\end{figure}
 	
 	Finalmente como ultimo ejercicio se eliminaron los socios que se apellidan Ortega.
 	\begin{lstlisting}
@@ -90,6 +114,13 @@
 	delete from socio where nombre like "%Ortega%"; --Borramos a los Ortega
 	select count(*) from socio; --Observamos los cambios que han surgido
 	\end{lstlisting}
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/seis.png}
+			\label{fig:seis}
+			\caption{Eliminación de elementos de la base de datos, se puede observar como cambia el número de socios}
+		\end{center}
+	\end{figure}
 	\section{Conclusiones}
 	Esta práctica fue una buena introducción para el manejo de la información de una base de datos, con esto ya no solo se podrán hacer consultas a datos ya establecidos en la base de datos si no que ahora se podrá insertar información que sea necesaria guardar o modificar lo que ya existe en dicha base. Por lo que al juntar esto y las consultas se lograra un manejo de los datos más completo.
 	\bibliography{bibliografia} 
