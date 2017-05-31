@@ -1,8 +1,8 @@
 -- Nombre del socio y la tarjeta asgnada
 create view v1 as
-  select s.nombre as socio,
+  select s.nombre as socio, t.nombre as tarjeta
   from socio s, tarjeta t
-  where t.socio_idsocio-s.idsocio
+  where t.socio_idsocio=s.idsocio
   order by 2,1;
 -- Nombre de asociado y su tel
 create view v2 as
@@ -61,7 +61,7 @@ create view v11 as
 -- Nombre del socio
 create view v12 as
   select s.nombre as socio, h.nombre as sucursal
-  from socio s, homdepot h, hdsocio x
+  from socio s, homedepot h, hdsocio x
   where s.idsocio=x.socio_idsocio
   and x.homedepot_idhd = h.idhd
   order by 2, 1;
@@ -91,8 +91,6 @@ where v8.socio = v12.socio
 order by 2;
 
 -- Mostrar el nombre de las sucursales, estado y el nombre de sus asociados, para aquellas sucursales ubicadas en el edomex
- select v4.* v11.asociado
- from v4, v11
- where v4.sucursal=v11.sucursal
- and v4.estado like "%mexico%"
- order by 3;
+select v4.*, v11.asociado from v4, v11 
+where v4.sucursal=v11.sucursal and v4.estado like "%mexico%" 
+order by 3;
