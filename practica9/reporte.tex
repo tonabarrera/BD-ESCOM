@@ -41,16 +41,82 @@
 	Esperando que este con madre
 	\section{Desarrollo}
 	En esta practica se trabajan transacciones sobre la tabla tienda de la base de datos elektra, la cual ya tiene datos, las operaciones que se realizaran sobre esta tabla son similares a las que se trabajaron con la tabla cliente en el salón de clases.
-	\begin{figure}[H]
-		\begin{center}
-			\includegraphics[width=\textwidth]{img/uno.png}
-			\label{fig:uno}
-			\caption{}
-		\end{center}
-	\end{figure}
-	\begin{lstlisting}
-	\end{lstlisting}
 
+	\begin{lstlisting}
+	begin;
+	select * from tienda where idTienda between 90 and 777;
+	insert into tienda(idTienda, nombre, estado, tel) values(777, "MEGA ELEKTRA", "Chiapas", "7777777777");
+	select * from tienda where nombre like "mega%" and tel like "777%";
+	rollback;
+	select * from tienda where nombre like "mega%" and tel like "777%";
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	begin;
+	select count(*) from tienda;
+	select * from tienda where nombre like "mega%" and tel like "777%";
+	insert into tienda(idTienda, nombre, estado, tel) values(777, "MEGA ELEKTRA", "Chiapas", "7777777777");
+	select * from tienda where nombre like "mega%" and tel like "777%";
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	begin;
+	select count(*) from tienda;
+	insert into tienda(idTienda, nombre, estado, tel) values(777, "MEGA ELEKTRA", "Chiapas", "7777777777");
+	select * from tienda where nombre like "mega%" and tel like "777%";
+	commit;
+	select * from tienda where nombre like "mega%" and tel like "777%";
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	begin;
+	select count(*) from tienda;
+	insert into tienda(idTienda, nombre, estado, tel) values(778, "OTRO ELEKTRA", "Campeche", "6666666666");
+	select * from tienda where nombre like "otro%" and tel like "666%";
+	commit;
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	select * from tienda where idTienda between 600 and 800;
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	select * from tienda where idTienda between 600 and 800;
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	insert into tienda(idCliente, nombre, estado, tel)
+	values (700, "SUPER ELEKTRA","Colima", "9090909090");
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	select * from tienda where idTienda between 600 and 800;
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	select * from tienda where idTienda between 600 and 800;
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	select * from tienda where idTienda between 600 and 800;
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	lock tables tienda read;
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	select * from tienda where idTienda between 600 and 800;
+	\end{lstlisting}
+	
+	\begin{lstlisting}
+	unlock table;
+	lock tables tienda write;
+	select * from tienda where idTienda between 600 and 800;
+	insert into tienda(idCliente, nombre, estado, tel) values (790, "UlTIMO ELEKTRA","Aguascalientes", "4242424242"); 
+	select * from tienda where idTienda between 600 and 800;
+	\end{lstlisting}
+	
 	\section{Conclusiones}
 	\bibliography{bibliografia} 
 	\bibliographystyle{ieeetr}
