@@ -120,7 +120,7 @@ select * from tienda where idTienda between 600 and 800; --ESTE
 -- En la negra
 insert into cliente(idCliente, nombre, apPaterno, apMaterno)
   values (163, "Jose David","Ortega", "Pacheco");
-insert into tienda(idCliente, nombre, estado, tel)
+insert into tienda(idTienda, nombre, estado, tel)
   values (700, "SUPER ELEKTRA","Colima", "9090909090"); -- ESTE
 
 select * from cliente where idcliente between 158 and 165;
@@ -131,24 +131,19 @@ select * from tienda where idTienda between 600 and 800; --ESTE
 select * from cliente where idcliente between 158 and 165; -- no debe salir en 163
 select * from tienda where idTienda between 600 and 800; --ESTE
 
-
 -- En la negra
 commit;
 commit; --ESTE
-
 
 --En la roja
 select * from cliente where idcliente between 158 and 165; -- si sale en 163
 select * from tienda where idTienda between 600 and 800; --ESTE
 --Todo esto gracias a la propidad de aislamiento
 
-
 --En la negra
 lock tables cliente read; -- Solo pude leer cliente
 lock tables tienda read; -- ESTE
 -- bloqueo de escritura compartido
-
-
 
 --En la verde
 select * from cliente where idcliente between 158 and 165;
@@ -164,7 +159,7 @@ select * from cliente where idcliente between 158 and 165;
 select * from tienda where idTienda between 600 and 800; --ESTE
 insert into cliente(idCliente, nombre, apPaterno, apMaterno)
   values (164, "Jorge","Maldonado", "Carpio");
-insert into tienda(idCliente, nombre, estado, tel)
+insert into tienda(idTienda, nombre, estado, tel)
   values (790, "UlTIMO ELEKTRA","Aguascalientes", "4242424242"); -- ESTE
 select * from cliente where idcliente between 158 and 165; --ok
 select * from tienda where idTienda between 600 and 800; --ESTE
